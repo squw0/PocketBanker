@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-
-class Drawer extends StatelessWidget {
-  const Drawer({super.key});
+class drawer extends StatelessWidget {
+  const drawer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("drawer"),),
+    return Drawer(
+      backgroundColor: Colors.green,
+      //appBar: AppBar(title: Text("drawer")),
+      child: DrawerHeader(child: Center(child: Text("DRAWER HEADER"))),
     );
   }
 }
