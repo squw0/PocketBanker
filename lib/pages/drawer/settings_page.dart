@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:pocket_banker/themes/theme_data.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -7,7 +8,27 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar (title: (Text("Settings")))
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      appBar: AppBar(title: (Text("USTAWIENIA"))),
+      body: Container(
+        color: Colors.green,
+        child: Row(
+          children: [
+            Text('Zmiana motywu'),
+            Switch(
+              value: Provider.of<ThemeProvider>(
+                context,
+                listen: false,
+              ).isDarkModeOn,
+
+              onChanged: (value) => Provider.of<ThemeProvider>(
+                context,
+                listen: false,
+              ).switchTheme(),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
